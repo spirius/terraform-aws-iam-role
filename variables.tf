@@ -1,35 +1,53 @@
 variable "name" {}
 variable "path" {
-  default = null
+  default = "/"
 }
 
 variable "assume_role_services" {
-  default = null
-  type    = list(string)
+  description = "List of AWS servicees allowed to assume this role."
+  type        = list(string)
+  default     = []
 }
 
 variable "assume_role_arns" {
-  default = null
-  type    = list(string)
+  description = "List of AWS identity ARNs allowed to assume this role."
+  type        = list(string)
+  default     = []
 }
 
 variable "assume_role_policy" {
-  default = "{}"
+  description = "Assume role policy, default: null"
+  default     = null
+
+  type = object({
+    json = string
+  })
 }
 
-variable "managed_policies" {
-  type = list(string)
+variable "managed_policy_arns" {
+  description = "List of IAM policy ARNs for this role."
+  type        = list(string)
+  default     = []
 }
 
 variable "access_policy" {
+  description = "Access policy, default: null"
+
+  type = object({
+    json = string
+  })
+
   default = null
 }
 
 variable "instance_profile" {
-  type    = bool
-  default = false
+  description = "Indicates if aws_iam_instance_profile should be created for this role."
+  type        = bool
+  default     = false
 }
 
 variable "tags" {
-  type = map(string)
+  description = "Role tags."
+  type        = map(string)
+  default     = {}
 }

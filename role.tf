@@ -1,26 +1,30 @@
 data "aws_iam_policy_document" "assume_role" {
-  source_json = var.assume_role_policy
+  source_json = try(var.assume_role_policy.json, null)
 
-  statement {
-    sid = "Module"
+  dynamic "statement" {
+    for_each = length(var.assume_role_services) > 0 || length(var.assume_role_arns) > 0 ? [1] : []
 
-    actions = ["sts:AssumeRole"]
+    content {
+      sid = "Module"
 
-    dynamic "principals" {
-      for_each = var.assume_role_services == null ? [] : [var.assume_role_services]
+      actions = ["sts:AssumeRole"]
 
-      content {
-        type        = "Service"
-        identifiers = principals.value
+      dynamic "principals" {
+        for_each = length(var.assume_role_services) > 0 ? [var.assume_role_services] : []
+
+        content {
+          type        = "Service"
+          identifiers = principals.value
+        }
       }
-    }
 
-    dynamic "principals" {
-      for_each = var.assume_role_arns == null ? [] : [var.assume_role_arns]
+      dynamic "principals" {
+        for_each = length(var.assume_role_arns) > 0 ? [var.assume_role_arns] : []
 
-      content {
-        type        = "AWS"
-        identifiers = principals.value
+        content {
+          type        = "AWS"
+          identifiers = principals.value
+        }
       }
     }
   }
@@ -38,11 +42,11 @@ resource "aws_iam_role_policy" "access_policy" {
 
   name   = "AccessPolicy"
   role   = aws_iam_role.role.name
-  policy = var.access_policy
+  policy = var.access_policy.json
 }
 
 resource "aws_iam_role_policy_attachment" "managed_policies" {
-  for_each = toset(var.managed_policies)
+  for_each = toset(var.managed_policy_arns)
 
   role       = aws_iam_role.role.name
   policy_arn = each.value

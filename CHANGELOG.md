@@ -1,4 +1,4 @@
-# CHANGELOG
+# Changelog
 
 ## 1.1.1 (March 23, 2020)
 

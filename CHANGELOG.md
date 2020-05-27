@@ -1,6 +1,9 @@
 # Changelog
 
-## 1.1.1 (March 23, 2020)
+## 1.2.0 (May 28, 2020)
+ * Set explicit output dependency from policy attachments
+
+## 1.1.0 (March 23, 2020)
 
 ENHANCMENTS:
  * Rename `managed_policies` to `managed_policy_arns`.

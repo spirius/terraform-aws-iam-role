@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.1 (June 19, 2020)
+ * Add `max_session_duration` attribute.
+
 ## 1.2.0 (May 28, 2020)
  * Set explicit output dependency from policy attachments
 

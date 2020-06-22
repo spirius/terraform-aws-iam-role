@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.2 (June 22, 2020)
+ * Add usage examples
+ * Add terraform and aws provider version constraints
+
 ## 1.2.1 (June 19, 2020)
  * Add `max_session_duration` attribute.
 

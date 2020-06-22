@@ -1,6 +1,10 @@
-variable "name" {}
+variable "name" {
+  description = "The name of the IAM role."
+}
+
 variable "path" {
-  default = "/"
+  description = "The path of IAM role."
+  default     = "/"
 }
 
 variable "assume_role_services" {

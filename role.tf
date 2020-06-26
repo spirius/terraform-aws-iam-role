@@ -34,8 +34,11 @@ resource "aws_iam_role" "role" {
   path = var.path
   name = var.name
 
-  assume_role_policy   = data.aws_iam_policy_document.assume_role.json
-  max_session_duration = var.max_session_duration
+  assume_role_policy    = data.aws_iam_policy_document.assume_role.json
+  max_session_duration  = var.max_session_duration
+  force_detach_policies = var.force_detach_policies
+  description           = var.description
+  permissions_boundary  = var.permissions_boundary == "" ? null : var.permissions_boundary
 }
 
 resource "aws_iam_role_policy" "access_policy" {

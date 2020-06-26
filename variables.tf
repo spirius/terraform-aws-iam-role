@@ -61,3 +61,19 @@ variable "max_session_duration" {
   type        = number
   default     = 3600
 }
+
+variable "force_detach_policies" {
+  description = "Indicates if policies should be detached before destroying."
+  type        = bool
+  default     = false
+}
+
+variable "description" {
+  description = "The description of IAM role"
+  default     = ""
+}
+
+variable "permissions_boundary" {
+  description = "The ARN of permission boundary policy."
+  default     = ""
+}

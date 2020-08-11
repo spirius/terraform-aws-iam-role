@@ -1,7 +1,8 @@
 # Changelog
 
-## unreleased
- * Add `force_detach_policies`, `description` and `permissions_boundary` role attributes
+## 1.2.3 (August 11, 2020)
+ * Set only lower limit on aws provider version.
+ * Add `force_detach_policies`, `description` and `permissions_boundary` role attributes.
 
 ## 1.2.2 (June 22, 2020)
  * Add usage examples

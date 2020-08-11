@@ -49,7 +49,7 @@ module "ec2_role" {
 
   name                 = "my-instance"
   assume_role_services = ["ec2.amazonaws.com"]
-  managed_policy_arns  = ["arn:aws:iam::aws:policy/service-role/AmazonSSMManagedInstanceCore"]
+  managed_policy_arns  = ["arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"]
   access_policy        = data.aws_iam_policy_document.ec2_access
   instance_profile     = true
 

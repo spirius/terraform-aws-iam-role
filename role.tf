@@ -42,7 +42,15 @@ resource "aws_iam_role" "role" {
 }
 
 resource "aws_iam_role_policy" "access_policy" {
-  count = var.access_policy == null ? 0 : 1
+  count = var.access_policy == null ? 0 : (var.wait_for_policy ? 1 : 0)
+
+  name   = "AccessPolicy"
+  role   = aws_iam_role.role.name
+  policy = var.access_policy.json
+}
+
+resource "aws_iam_role_policy" "access_policy_independent" {
+  count = var.access_policy == null ? 0 : (var.wait_for_policy ? 0 : 1)
 
   name   = "AccessPolicy"
   role   = aws_iam_role.role.name

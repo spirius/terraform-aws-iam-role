@@ -77,3 +77,8 @@ variable "permissions_boundary" {
   description = "The ARN of permission boundary policy."
   default     = ""
 }
+
+variable "wait_for_policy" {
+  type    = bool
+  default = true
+}

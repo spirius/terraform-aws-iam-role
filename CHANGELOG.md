@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.4 (February 11, 2021)
+ * Add `wait_for_policy` attribute to control whether roles depends on policy attachment.
+
 ## 1.2.3 (August 11, 2020)
  * Set only lower limit on aws provider version.
  * Add `force_detach_policies`, `description` and `permissions_boundary` role attributes.

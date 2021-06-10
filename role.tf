@@ -58,7 +58,14 @@ resource "aws_iam_role_policy" "access_policy_independent" {
 }
 
 resource "aws_iam_role_policy_attachment" "managed_policies" {
-  for_each = toset(var.managed_policy_arns)
+  for_each = var.wait_for_policy ? toset(var.managed_policy_arns) : toset([])
+
+  role       = aws_iam_role.role.name
+  policy_arn = each.value
+}
+
+resource "aws_iam_role_policy_attachment" "managed_policies_independent" {
+  for_each = var.wait_for_policy ? toset([]) : toset(var.managed_policy_arns)
 
   role       = aws_iam_role.role.name
   policy_arn = each.value

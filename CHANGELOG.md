@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.5 (June 10, 2021)
+ * Fix compatbility with terraform 1.0
+
 ## 1.2.4 (February 11, 2021)
  * Add `wait_for_policy` attribute to control whether roles depends on policy attachment.
 

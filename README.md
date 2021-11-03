@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "lambda_access" {
 
 module "lambda_role" {
   source  = "spirius/iam-role/aws"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   name                 = "my-lambda"
   assume_role_services = ["lambda.amazonaws.com"]
@@ -45,7 +45,7 @@ data "aws_iam_policy_document" "ec2_access" {
 
 module "ec2_role" {
   source  = "spirius/iam-role/aws"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   name                 = "my-instance"
   assume_role_services = ["ec2.amazonaws.com"]

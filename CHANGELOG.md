@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.0 (November 3, 2021)
+ * Adapt terraform v1 requirements
+
 ## 1.2.6 (August 25, 2021)
  * Remove limit on newer terraform versions
 

@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.1 (March 14, 2022)
+ * Add aws provider v4 to version constraints
+
 ## 2.0.0 (November 3, 2021)
  * Adapt terraform v1 requirements
 

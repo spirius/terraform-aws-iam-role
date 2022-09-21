@@ -1,5 +1,5 @@
 data "aws_iam_policy_document" "assume_role" {
-  source_json = try(var.assume_role_policy.json, null)
+  source_policy_documents = try([var.assume_role_policy.json], [])
 
   dynamic "statement" {
     for_each = length(var.assume_role_services) > 0 || length(var.assume_role_arns) > 0 ? [1] : []

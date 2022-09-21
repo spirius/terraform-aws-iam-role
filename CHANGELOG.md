@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.2 (March 14, 2022)
+ * Use `source_policy_documents` attribute instead of deprecated `source_json`
+
 ## 2.0.1 (March 14, 2022)
  * Add aws provider v4 to version constraints
 

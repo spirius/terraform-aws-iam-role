@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.0 (June 30, 2023)
+ * Upgrade to AWS terraform provider v5
+
 ## 2.0.2 (March 14, 2022)
  * Use `source_policy_documents` attribute instead of deprecated `source_json`
 
